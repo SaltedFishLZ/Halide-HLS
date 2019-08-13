@@ -2,6 +2,7 @@
 #include "Stencil.h"
 
 #include "hls_target.h"
+#include "hls_wrapper.h"
 #include "dma.h"
 
 
@@ -14,7 +15,18 @@ void hls_wrapper(
     int out_stride_1, int out_extent_1
 ) {
 #pragma HLS INTERFACE m_axi port=in
+#pragma HLS INTERFACE s_axilite port=in_stride_0 bundle=control
+#pragma HLS INTERFACE s_axilite port=in_extent_0 bundle=control
+#pragma HLS INTERFACE s_axilite port=in_stride_1 bundle=control
+#pragma HLS INTERFACE s_axilite port=in_extent_1 bundle=control
+
 #pragma HLS INTERFACE m_axi port=out
+#pragma HLS INTERFACE s_axilite port=out_stride_0 bundle=control
+#pragma HLS INTERFACE s_axilite port=out_extent_0 bundle=control
+#pragma HLS INTERFACE s_axilite port=out_stride_1 bundle=control
+#pragma HLS INTERFACE s_axilite port=out_extent_1 bundle=control
+
+#pragma HLS INTERFACE s_axilite port=return bundle=control
 
 #pragma HLS DATAFLOW
     static hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;

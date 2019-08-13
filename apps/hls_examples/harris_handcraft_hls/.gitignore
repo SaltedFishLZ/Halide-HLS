@@ -1,1 +1,4 @@
-!*
+.nfs*
+vivado_hls.log
+hls_prj/
+

@@ -6,8 +6,11 @@ set LD_FLAGS "$env(RUN_PATH)/pipeline_native.o -lpthread -ldl -lpng16 -ljpeg"
 
 # creating the project and seting up the environtment
 open_project hls_prj
-set_top hls_target
+set_top hls_wrapper
 add_files hls_target.cpp -cflags "-std=c++0x $HLS_INC_FLAGS"
+add_files hls_wrapper.cpp -cflags "-std=c++0x $HLS_INC_FLAGS"
+add_files -tb pipeline_hls.cpp -cflags "-std=c++0x $INC_FLAGS"
+
 add_files -tb pipeline_hls.cpp -cflags "-std=c++0x $INC_FLAGS"
 add_files -tb run.cpp -cflags "-std=c++0x $INC_FLAGS"
 
