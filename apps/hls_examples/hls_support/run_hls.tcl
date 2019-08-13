@@ -1,7 +1,9 @@
 set HALIDE_PATH $env(RUN_PATH)/../../..
 set HLS_INC_FLAGS "-I${HALIDE_PATH}/include -I$env(RUN_PATH)/../hls_support"
 set INC_FLAGS "-I${HALIDE_PATH}/include -I${HALIDE_PATH}/tools -I$env(RUN_PATH)/../../support -I$env(RUN_PATH)/../hls_support"
-set LD_FLAGS "$env(RUN_PATH)/pipeline_native.o -lpthread -ldl -lpng12"
+
+# set LD_FLAGS "$env(RUN_PATH)/pipeline_native.o -lpthread -ldl -lpng12"
+set LD_FLAGS "$env(RUN_PATH)/pipeline_native.o -lpthread -ldl -lpng16 -ljpeg"
 
 # creating the project and seting up the environtment
 open_project hls_prj
@@ -19,7 +21,7 @@ config_bind -effort high
 config_schedule -effort high
 
 # C simluation
-csim_design -O -ldflags ${LD_FLAGS} -argv $env(RUN_ARGS)
+csim_design -compiler clang -O -ldflags ${LD_FLAGS} -argv $env(RUN_ARGS)
 
 # C-to-Verilog synthesis
 csynth_design

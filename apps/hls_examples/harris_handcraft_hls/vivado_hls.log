@@ -1,0 +1,1614 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version 2017.2
+  Build 1909853 on Thu Jun 15 18:55:24 MDT 2017
+  Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+================================================================
+INFO: [HLS 200-10] Running '/cad/xilinx/vivado/2017.2/Vivado_HLS/2017.2/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'zhliang' on host 'kiwi.stanford.edu' (Linux_x86_64 version 4.15.0-54-generic) on Mon Aug 12 18:17:22 PDT 2019
+INFO: [HLS 200-10] On os Ubuntu 18.04.2 LTS
+INFO: [HLS 200-10] In directory '/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls'
+INFO: [HLS 200-10] Creating and opening project '/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/hls_prj'.
+INFO: [HLS 200-10] Adding design file 'hls_target.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'pipeline_hls.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'run.cpp' to the project
+INFO: [HLS 200-10] Creating and opening solution '/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/hls_prj/solution1'.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+make[1]: Entering directory '/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/hls_prj/solution1/csim/build'
+   Compiling ../../../../run.cpp in release mode
+   Compiling ../../../../pipeline_hls.cpp in release mode
+   Compiling ../../../../hls_target.cpp in release mode
+   Generating csim.exe
+make[1]: Leaving directory '/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/hls_prj/solution1/csim/build'
+../../../../run.cpp:38:17: warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+            if (fabs(out_native(x, y) - out_hls(x, y)) > 1e-4) {
+                ^
+../../../../run.cpp:38:17: note: use function 'std::abs' instead
+            if (fabs(out_native(x, y) - out_hls(x, y)) > 1e-4) {
+                ^~~~
+                std::abs
+1 warning generated.
+start.
+finished running native code
+finished running HLS code
+passed.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-10] Analyzing design file 'hls_target.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:02:10 ; elapsed = 00:01:37 . Memory (MB): peak = 341.945 ; gain = 12.789 ; free physical = 106167 ; free virtual = 207702
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:02:10 ; elapsed = 00:01:37 . Memory (MB): peak = 341.945 ; gain = 12.789 ; free physical = 106158 ; free virtual = 207701
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:114) in function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:116) in function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:188) in function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:190) in function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:192) in function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:114) in function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:116) in function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:188) in function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:190) in function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:192) in function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:114) in function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:116) in function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:114) in function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:116) in function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:188) in function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:190) in function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:192) in function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:114) in function 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator Stencil<float, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:116) in function 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator Stencil<float, 4ul, 3ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:188) in function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:190) in function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:192) in function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>()' completely.
+INFO: [XFORM 203-603] Inlining function 'AxiPackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' into 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:553).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<70ul, 3ul, 1ul, 1ul, 2ul, 4ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:50).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:204).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:197).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:205).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:197).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<70ul, 3ul, 1ul, 1ul, 2ul, 4ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:49).
+INFO: [XFORM 203-603] Inlining function 'Linebuffer1D<70ul, 3ul, 1ul, 1ul, 2ul, 4ul, unsigned char>::call' into 'linebuffer_1D<70ul, 3ul, 1ul, 1ul, 2ul, 4ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:142).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_1D<70ul, 3ul, 1ul, 1ul, 2ul, 4ul, unsigned char>' into 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:216).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>' into 'linebuffer_3D<70ul, 70ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:491).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_3D<70ul, 70ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' into 'linebuffer_4D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:504).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_4D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' into 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:529).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_type<unsigned char, 8>' into 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:123).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:291).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:62).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:334).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:331).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:327).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:322).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:319).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:317).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:313).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:310).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:306).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:301).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:298).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:296).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:105).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:102).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:98).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:93).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:90).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:88).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:84).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:81).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:77).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:72).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:69).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:67).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:538).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:534).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:398).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:396).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:392).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:390).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:337).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:316).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:160).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:156).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:108).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:87).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_uint<short>' into 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:197).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:338).
+INFO: [XFORM 203-603] Inlining function 'Stencil<short, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:109).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_type<short, 16>' into 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:123).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:529).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:385).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:380).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<short, 2ul, 1ul, 1ul, 1ul>::operator Stencil<short, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:151).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:748).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:736).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:724).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:708).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:696).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:684).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:647).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:644).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:643).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:640).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:639).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:636).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:635).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:632).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:631).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:628).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:627).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:624).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:623).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:620).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:619).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:616).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:615).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:612).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:611).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:608).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:607).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:604).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:603).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:600).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:599).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:596).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:595).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:592).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:591).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:588).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:587).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:584).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:583).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:580).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:579).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:576).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:575).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:574).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:541).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:537).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:507).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:504).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:503).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:500).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:499).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:496).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:495).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:492).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:491).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:488).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:487).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:484).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:483).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:480).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:479).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:476).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:475).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:472).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:471).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:468).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:467).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:464).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:463).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:460).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:459).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:456).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:455).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:452).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:451).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:448).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:447).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:444).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:443).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:440).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:439).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:436).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:435).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:434).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:401).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:395).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:269).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:266).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:265).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:262).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:261).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:258).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:257).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:254).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:253).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:250).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:249).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:246).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:245).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:242).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:241).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:238).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:237).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:234).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:233).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:230).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:229).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:226).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:225).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:222).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:221).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:218).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:217).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:214).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:213).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:210).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:209).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:206).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:205).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:202).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:201).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:197).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:196).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:163).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:159).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_uint<int>' into 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:197).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:205).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:197).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:648).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:542).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:508).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:402).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:270).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:164).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<68ul, 3ul, 1ul, 1ul, 2ul, 4ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:50).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:204).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<68ul, 3ul, 1ul, 1ul, 2ul, 4ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:49).
+INFO: [XFORM 203-603] Inlining function 'Linebuffer1D<68ul, 3ul, 1ul, 1ul, 2ul, 4ul, int>::call' into 'linebuffer_1D<68ul, 3ul, 1ul, 1ul, 2ul, 4ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:142).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_1D<68ul, 3ul, 1ul, 1ul, 2ul, 4ul, int>' into 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:216).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>' into 'linebuffer_3D<68ul, 68ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:491).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_3D<68ul, 68ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' into 'linebuffer_4D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:504).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_4D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' into 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:529).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_type<int, 32>' into 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:123).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_type<int, 32>' into 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:123).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:569).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:429).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 4ul, 3ul, 1ul, 1ul>::operator Stencil<int, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:191).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:645).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:641).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:637).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:633).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:629).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:625).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:621).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:617).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:613).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:609).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:605).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:601).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:597).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:593).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:589).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:585).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:581).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:577).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:505).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:501).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:497).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:493).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:489).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:485).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:481).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:477).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:473).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:469).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:465).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:461).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:457).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:453).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:449).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:445).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:441).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:437).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:267).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:263).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:259).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:255).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:251).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:247).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:243).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:239).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:235).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:231).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:227).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:223).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:219).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:215).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:211).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:207).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:203).
+INFO: [XFORM 203-603] Inlining function 'Stencil<int, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:199).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:679).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:674).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<int, 2ul, 1ul, 1ul, 1ul>::operator Stencil<int, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:669).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:763).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:723).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_uint' into 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:197).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:205).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 1ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:197).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<float, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:764).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<66ul, 3ul, 1ul, 1ul, 2ul, 4ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:50).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:204).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 2ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:196).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator Stencil<float, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'Linebuffer1D<66ul, 3ul, 1ul, 1ul, 2ul, 4ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:49).
+INFO: [XFORM 203-603] Inlining function 'Linebuffer1D<66ul, 3ul, 1ul, 1ul, 2ul, 4ul, float>::call' into 'linebuffer_1D<66ul, 3ul, 1ul, 1ul, 2ul, 4ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:142).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_1D<66ul, 3ul, 1ul, 1ul, 2ul, 4ul, float>' into 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:216).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>' into 'linebuffer_3D<66ul, 66ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:491).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_3D<66ul, 66ul, 1ul, 2ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' into 'linebuffer_4D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:504).
+INFO: [XFORM 203-603] Inlining function 'linebuffer_4D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' into 'linebuffer<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:529).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_type' into 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator Stencil<float, 4ul, 3ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:123).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<float, 4ul, 3ul, 1ul, 1ul>::operator Stencil<float, 4ul, 3ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:787).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:832).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:830).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:828).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:826).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:824).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:822).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:820).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:818).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:817).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:809).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:807).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:805).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:803).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:801).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:799).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:797).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:795).
+INFO: [XFORM 203-603] Inlining function 'Stencil<float, 4ul, 3ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:794).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:837).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator()' into 'hls_target' (hls_target.cpp:814).
+INFO: [XFORM 203-603] Inlining function 'bitcast_to_uint<unsigned char>' into 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:196).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' into 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator AxiPackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:205).
+INFO: [XFORM 203-603] Inlining function 'PackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator AxiPackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' into 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator AxiPackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:206).
+INFO: [XFORM 203-603] Inlining function 'Stencil<unsigned char, 2ul, 1ul, 1ul, 1ul>::operator AxiPackedStencil<unsigned char, 2ul, 1ul, 1ul, 1ul>' into 'hls_target' (hls_target.cpp:838).
+INFO: [XFORM 203-603] Inlining function 'float_from_bits' into 'hls_target' (hls_target.cpp:720).
+INFO: [XFORM 203-603] Inlining function 'float_from_bits' into 'hls_target' (hls_target.cpp:760).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:796).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:798).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:800).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:802).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:804).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:806).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:808).
+INFO: [XFORM 203-603] Inlining function 'float_from_bits' into 'hls_target' (hls_target.cpp:811).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:819).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:821).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:823).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:825).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:827).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:829).
+INFO: [XFORM 203-603] Inlining function 'max<float>' into 'hls_target' (hls_target.cpp:831).
+INFO: [XFORM 203-603] Inlining function 'float_from_bits' into 'hls_target' (hls_target.cpp:834).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:02:12 ; elapsed = 00:01:39 . Memory (MB): peak = 469.945 ; gain = 140.789 ; free physical = 105790 ; free virtual = 207338
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:122: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:02:55 ; elapsed = 00:02:22 . Memory (MB): peak = 469.945 ; gain = 140.789 ; free physical = 106331 ; free virtual = 207881
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-2.1' (hls_target.cpp:56) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-4.1' (hls_target.cpp:145) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-5.1' (hls_target.cpp:185) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-6.1' (hls_target.cpp:285) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-8.1' (hls_target.cpp:374) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-9.1' (hls_target.cpp:423) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-10.1' (hls_target.cpp:523) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-11.1' (hls_target.cpp:563) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-12.1' (hls_target.cpp:663) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-13.1' (hls_target.cpp:781) in function 'hls_target' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:178) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'LB1D_shiftreg' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:178) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'LB1D_shiftreg' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:178) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'LB1D_shiftreg' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' for pipelining.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-5.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-6.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-6.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-6.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-8.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-8.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-8.1.3' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-9.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-9.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-9.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-10.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-10.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-11.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-11.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-11.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-12.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-12.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-12.1.3' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-12.1.4' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-13.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:118) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-13.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:120) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-13.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:194) in function 'hls_target' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:188) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:195) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:203) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:46) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:47) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:48) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:188) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:195) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:203) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:46) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:47) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:48) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:188) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:195) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:203) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:46) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:47) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1.1.1.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:48) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value' (hls_target.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.1' (hls_target.cpp:148) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.1' (hls_target.cpp:153) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value' (hls_target.cpp:193) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value' (hls_target.cpp:293) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.1' (hls_target.cpp:377) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.4' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.2' (hls_target.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.6' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.1' (hls_target.cpp:387) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value' (hls_target.cpp:431) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.2' (hls_target.cpp:526) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.7' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.1' (hls_target.cpp:531) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.1' (hls_target.cpp:571) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value' (hls_target.cpp:666) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.9' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.1' (hls_target.cpp:671) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.11' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.1' (hls_target.cpp:676) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.12' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.1' (hls_target.cpp:681) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_hw_output_1_stencil.value' (hls_target.cpp:789) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:26) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:26) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'buffer.value.V.3' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:26) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.0' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.0' (hls_target.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.1.0' (hls_target.cpp:148) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.1.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.1.0' (hls_target.cpp:153) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.0' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.0' (hls_target.cpp:193) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1.0' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.0' (hls_target.cpp:293) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.1.0' (hls_target.cpp:377) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.4.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.2.0' (hls_target.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.6.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.1.0' (hls_target.cpp:387) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.0' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.0' (hls_target.cpp:431) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.2.0' (hls_target.cpp:526) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.7.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.1.0' (hls_target.cpp:531) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.0' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.1.0' (hls_target.cpp:571) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.0' (hls_target.cpp:666) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.9.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.1.0' (hls_target.cpp:671) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.11.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.1.0' (hls_target.cpp:676) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.12.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.1.0' (hls_target.cpp:681) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.0' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_hw_output_1_stencil.value.0' (hls_target.cpp:789) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.0.0' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.0.0' (hls_target.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.1.0.0' (hls_target.cpp:148) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.1.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.1.0.0' (hls_target.cpp:153) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.0.0' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.0.0' (hls_target.cpp:193) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1.0.0' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.0.0' (hls_target.cpp:293) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.1.0.0' (hls_target.cpp:377) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.4.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.2.0.0' (hls_target.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.6.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.1.0.0' (hls_target.cpp:387) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.0.0' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.0.0' (hls_target.cpp:431) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.2.0.0' (hls_target.cpp:526) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.7.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.1.0.0' (hls_target.cpp:531) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.0.0' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.1.0.0' (hls_target.cpp:571) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.0.0' (hls_target.cpp:666) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.9.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.1.0.0' (hls_target.cpp:671) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.11.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.1.0.0' (hls_target.cpp:676) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.12.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.1.0.0' (hls_target.cpp:681) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.0.0' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_hw_output_1_stencil.value.0.0' (hls_target.cpp:789) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.0.0.0' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.0.0.1' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.0.0.2' (hls_target.cpp:59) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.0.0.0' (hls_target.cpp:64) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.1.0.0.0' (hls_target.cpp:148) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.1.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.1.0.0.0' (hls_target.cpp:153) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.0.0.0' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.0.0.1' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xx_1_stencil.value.0.0.2' (hls_target.cpp:188) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.2.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.0.0.0' (hls_target.cpp:193) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1.0.0.0' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1.0.0.1' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_padded_1_stencil.value.1.0.0.2' (hls_target.cpp:288) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.3.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.0.0.0' (hls_target.cpp:293) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.1.0.0.0' (hls_target.cpp:377) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.4.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_x_1_stencil.value.2.0.0.0' (hls_target.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.6.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.1.0.0.0' (hls_target.cpp:387) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.0.0.0' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.0.0.1' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_xy_1_stencil.value.0.0.2' (hls_target.cpp:426) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.5.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.0.0.0' (hls_target.cpp:431) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_y_1_stencil.value.2.0.0.0' (hls_target.cpp:526) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.7.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.1.0.0.0' (hls_target.cpp:531) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.0.0.0' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.0.0.1' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_yy_1_stencil.value.0.0.2' (hls_target.cpp:566) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.8.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.1.0.0.0' (hls_target.cpp:571) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gy_1_stencil.value.0.0.0' (hls_target.cpp:666) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.9.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gxy_1_stencil.value.1.0.0.0' (hls_target.cpp:671) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.11.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_grad_gx_1_stencil.value.1.0.0.0' (hls_target.cpp:676) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.12.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.1.0.0.0' (hls_target.cpp:681) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.0.0.0' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.0.0.1' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_p2_cim_stencil.value.0.0.2' (hls_target.cpp:784) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10.0.0.0' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10.0.0.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'res.value.10.0.0.2' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Stencil.h:111) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array '_hw_output_1_stencil.value.0.0.0' (hls_target.cpp:789) in dimension 1 completely.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:176) to a process function for dataflow in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:215) to a process function for dataflow in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_1_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:550) to a process function for dataflow in function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>'.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:176) to a process function for dataflow in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:215) to a process function for dataflow in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:176) to a process function for dataflow in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:215) to a process function for dataflow in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call'.
+INFO: [XFORM 203-721] Changing loop 'Loop_1_proc' (hls_target.cpp:34) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_2_proc' (hls_target.cpp:54) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_3_proc' (hls_target.cpp:123) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_4_proc' (hls_target.cpp:143) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_5_proc' (hls_target.cpp:183) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_6_proc' (hls_target.cpp:283) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_7_proc' (hls_target.cpp:352) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_8_proc' (hls_target.cpp:372) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_9_proc' (hls_target.cpp:421) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_10_proc' (hls_target.cpp:521) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_11_proc' (hls_target.cpp:561) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_12_proc' (hls_target.cpp:661) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-721] Changing loop 'Loop_13_proc' (hls_target.cpp:779) to a process function for dataflow in function 'hls_target'.
+INFO: [XFORM 203-712] Applying dataflow to function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:151), detected/extracted 2 process function(s):
+	 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call_Loop_LB2D_buf_proc'
+	 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call_Loop_LB2D_shift_proc'.
+INFO: [XFORM 203-712] Applying dataflow to function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1), detected/extracted 1 process function(s):
+	 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call'.
+INFO: [XFORM 203-712] Applying dataflow to function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:542:1), detected/extracted 2 process function(s):
+	 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>_Loop_1_proc'
+	 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>.1'.
+INFO: [XFORM 203-712] Applying dataflow to function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:151), detected/extracted 2 process function(s):
+	 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call_Loop_LB2D_buf_proc'
+	 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call_Loop_LB2D_shift_proc'.
+INFO: [XFORM 203-712] Applying dataflow to function 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1), detected/extracted 1 process function(s):
+	 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call'.
+INFO: [XFORM 203-712] Applying dataflow to function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:151), detected/extracted 2 process function(s):
+	 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call_Loop_LB2D_buf_proc'
+	 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call_Loop_LB2D_shift_proc'.
+INFO: [XFORM 203-712] Applying dataflow to function 'linebuffer<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1), detected/extracted 1 process function(s):
+	 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call'.
+INFO: [XFORM 203-712] Applying dataflow to function 'hls_target' (hls_target.cpp:6), detected/extracted 18 process function(s):
+	 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>'
+	 'Loop_1_proc'
+	 'Loop_2_proc'
+	 'Loop_3_proc'
+	 'Loop_4_proc'
+	 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>'
+	 'Loop_5_proc'
+	 'Loop_6_proc'
+	 'Loop_7_proc'
+	 'Loop_8_proc'
+	 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>'
+	 'Loop_9_proc'
+	 'Loop_10_proc'
+	 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>'
+	 'Loop_11_proc'
+	 'Loop_12_proc'
+	 'linebuffer<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>'
+	 'Loop_13_proc'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (hls_target.cpp:782:4) to (hls_target.cpp:781:83) in function 'Loop_13_proc'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:207:13) in function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call_Loop_LB2D_buf_proc'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:207:13) in function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call_Loop_LB2D_buf_proc'... converting 7 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:207:13) in function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call_Loop_LB2D_buf_proc'... converting 7 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'Loop_9_proc' (hls_target.cpp:122:81)...16 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'Loop_5_proc' (hls_target.cpp:122:79)...16 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'Loop_11_proc' (hls_target.cpp:122:79)...16 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:03:52 ; elapsed = 00:03:19 . Memory (MB): peak = 469.945 ; gain = 140.789 ; free physical = 106071 ; free virtual = 207628
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:550:26) in function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>_Loop_1_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:421:41) in function 'Loop_9_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:372:40) in function 'Loop_8_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:352:21) in function 'Loop_7_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:283:39) in function 'Loop_6_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:183:40) in function 'Loop_5_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:143:40) in function 'Loop_4_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:123:21) in function 'Loop_3_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:54:39) in function 'Loop_2_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:34:21) in function 'Loop_1_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:779:42) in function 'Loop_13_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:661:37) in function 'Loop_12_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:561:40) in function 'Loop_11_proc'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (hls_target.cpp:521:40) in function 'Loop_10_proc'.
+WARNING: [XFORM 203-631] Renaming function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>_Loop_1_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:147:64) into linebuffer_Loop_1_pr.
+WARNING: [XFORM 203-631] Renaming function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>.1' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1) into linebuffer.
+WARNING: [XFORM 203-631] Renaming function 'linebuffer<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, unsigned char>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:543:1) into linebuffer.1.
+WARNING: [XFORM 203-631] Renaming function 'linebuffer<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, int>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1) into linebuffer.2.
+WARNING: [XFORM 203-631] Renaming function 'linebuffer<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 1ul, 1ul, 4ul, 3ul, 1ul, 1ul, float>' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:402:1) into linebuffer.3.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call_Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32:53) into call_Loop_LB2D_shift.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call_Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:75:43) into call_Loop_LB2D_buf_p.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<70ul, 70ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, unsigned char>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:151) into call.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call_Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32:53) into call_Loop_LB2D_shift.1.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call_Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:75:43) into call_Loop_LB2D_buf_p.1.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<68ul, 68ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, int>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:160:1) into call.1.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call_Loop_LB2D_shift_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:32:53) into call_Loop_LB2D_shift.2.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call_Loop_LB2D_buf_proc' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:75:43) into call_Loop_LB2D_buf_p.2.
+WARNING: [XFORM 203-631] Renaming function 'Linebuffer2D<66ul, 66ul, 1ul, 1ul, 2ul, 1ul, 4ul, 3ul, float>::call' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:160:1) into call.2.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[0].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[1].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[0].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[1].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[0].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'buffer[1].value.V' (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:167).
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:03:53 ; elapsed = 00:03:21 . Memory (MB): peak = 789.945 ; gain = 460.789 ; free physical = 105837 ; free virtual = 207396
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'hls_target' ...
+WARNING: [SYN 201-103] Legalizing function name 'linebuffer.1' to 'linebuffer_1'.
+WARNING: [SYN 201-103] Legalizing function name 'call_Loop_LB2D_buf_p.1' to 'call_Loop_LB2D_buf_p_1'.
+WARNING: [SYN 201-103] Legalizing function name 'call_Loop_LB2D_shift.1' to 'call_Loop_LB2D_shift_1'.
+WARNING: [SYN 201-103] Legalizing function name 'call.1' to 'call_1'.
+WARNING: [SYN 201-103] Legalizing function name 'linebuffer.2' to 'linebuffer_2'.
+WARNING: [SYN 201-103] Legalizing function name 'call_Loop_LB2D_buf_p.2' to 'call_Loop_LB2D_buf_p_2'.
+WARNING: [SYN 201-103] Legalizing function name 'call_Loop_LB2D_shift.2' to 'call_Loop_LB2D_shift_2'.
+WARNING: [SYN 201-103] Legalizing function name 'call.2' to 'call_2'.
+WARNING: [SYN 201-103] Legalizing function name 'linebuffer.3' to 'linebuffer_3'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'linebuffer_Loop_1_pr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 200.82 seconds; current allocated memory: 369.315 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 92.2
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      6      3      92.2   
+INFO: [BIND 205-100]   1      1      1      0      0      6      3      92.2   
+INFO: [BIND 205-100]   2      1      1      0      0      6      3      92.2   
+INFO: [BIND 205-100]   3      1      1      0      0      6      3      92.2   
+INFO: [BIND 205-100] Final cost: 92.2
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.006486 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 369.461 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_buf_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB2D_buf.1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+WARNING: [SCHED 204-81] Due to pragma (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:179:1), dependence in pipeline region 'LB2D_buf.1' need to be checked during RTL simulation.
+WARNING: [SCHED 204-81]     From : Operation (ID:56) (SV:3) => store i16 %tmp_value_V, i16* %buffer_0_value_V_ad, align 2
+WARNING: [SCHED 204-81]     To   : Operation (ID:40) (SV:2) => %buffer_0_value_V_lo = load i16* %buffer_0_value_V_ad_3, align 2
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 369.808 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1097.8
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     31     17     1097.8  
+INFO: [BIND 205-100]   1     12     10      0      0     31     17      840.8  
+INFO: [BIND 205-100]   2     12     10      0      0     31     17      808.8  
+INFO: [BIND 205-100]   3     13     11      0      0     31     17      808.8  
+INFO: [BIND 205-100]   4     13     11      0      0     31     17      808.8  
+INFO: [BIND 205-100]   5     13     11      0      0     31     17      808.8  
+INFO: [BIND 205-100] Final cost: 808.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.092256 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 370.058 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_shift' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB1D_shiftreg'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 370.315 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 178
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     20      8       178   
+INFO: [BIND 205-100]   1      7      6      0      0     20      8       149   
+INFO: [BIND 205-100]   2      5      5      0      0     20      8       149   
+INFO: [BIND 205-100]   3      6      6      0      0     20      8       149   
+INFO: [BIND 205-100]   4      5      5      0      0     20      8       149   
+INFO: [BIND 205-100] Final cost: 149
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.025804 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 370.496 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 370.558 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1071.09
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      3      1     1071.09 
+INFO: [BIND 205-100]   1      0      0      0      0      3      1     1071.09 
+INFO: [BIND 205-100]   2      0      0      0      0      3      1     1071.09 
+INFO: [BIND 205-100]   3      0      0      0      0      3      1     1071.09 
+INFO: [BIND 205-100] Final cost: 1071.09
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.063022 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 370.679 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'linebuffer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 370.760 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1070.09
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      1      0     1070.09 
+INFO: [BIND 205-100]   1      0      0      0      0      1      0     1070.09 
+INFO: [BIND 205-100]   2      0      0      0      0      1      0     1070.09 
+INFO: [BIND 205-100]   3      0      0      0      0      1      0     1070.09 
+INFO: [BIND 205-100] Final cost: 1070.09
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.06422 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 370.834 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'linebuffer_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 370.934 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1176.29
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      3      1     1176.29 
+INFO: [BIND 205-100]   1      0      0      0      0      3      1     1176.29 
+INFO: [BIND 205-100]   2      0      0      0      0      3      1     1176.29 
+INFO: [BIND 205-100]   3      0      0      0      0      3      1     1176.29 
+INFO: [BIND 205-100] Final cost: 1176.29
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.068527 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 371.024 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 371.186 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 92.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      6      3      92.4   
+INFO: [BIND 205-100]   1      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   2      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   3      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100] Final cost: 92.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.006356 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 371.290 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_2_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 371.485 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 389.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     48     15      389.4  
+INFO: [BIND 205-100]   1     13     13      0      0     48     15      389.4  
+INFO: [BIND 205-100]   2     12     12      0      0     48     15      389.4  
+INFO: [BIND 205-100]   3     13     13      0      0     48     15      389.4  
+INFO: [BIND 205-100] Final cost: 389.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.088984 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 371.745 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_3_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 371.863 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 92.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      6      3      92.4   
+INFO: [BIND 205-100]   1      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   2      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   3      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100] Final cost: 92.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.005999 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 371.968 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_4_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 372.164 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 193.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     12      7      193.4  
+INFO: [BIND 205-100]   1      4      4      0      0     12      7      193.4  
+INFO: [BIND 205-100]   2      3      3      0      0     12      7      193.4  
+INFO: [BIND 205-100]   3      4      4      0      0     12      7      193.4  
+INFO: [BIND 205-100] Final cost: 193.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.008107 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 372.290 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_buf_p_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB2D_buf.1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+WARNING: [SCHED 204-81] Due to pragma (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:179:1), dependence in pipeline region 'LB2D_buf.1' need to be checked during RTL simulation.
+WARNING: [SCHED 204-81]     From : Operation (ID:57) (SV:4) => store i64 %tmp_value_V, i64* %buffer_0_value_V_ad, align 8
+WARNING: [SCHED 204-81]     To   : Operation (ID:36) (SV:2) => %buffer_0_value_V_lo = load i64* %buffer_0_value_V_ad_2, align 8
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 372.558 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1321
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     31     18      1321   
+INFO: [BIND 205-100]   1     12     10      0      0     31     18     1054.8  
+INFO: [BIND 205-100]   2     11      9      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   3     13     11      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   4     12     10      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   5     13     11      0      0     31     18     1025.8  
+INFO: [BIND 205-100] Final cost: 1025.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.085418 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 372.868 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_shift_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB1D_shiftreg'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 373.051 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 322
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     20      8       322   
+INFO: [BIND 205-100]   1      7      6      0      0     20      8       293   
+INFO: [BIND 205-100]   2      5      5      0      0     20      8       293   
+INFO: [BIND 205-100]   3      6      6      0      0     20      8       293   
+INFO: [BIND 205-100]   4      5      5      0      0     20      8       293   
+INFO: [BIND 205-100] Final cost: 293
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.026979 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 373.231 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 373.306 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1497.9
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   1      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   2      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   3      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100] Final cost: 1497.9
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.063184 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 373.428 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'linebuffer_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 373.479 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1496.9
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   1      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   2      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   3      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100] Final cost: 1496.9
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.065946 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 373.596 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_5_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 373.780 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1237
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     34      9      1237   
+INFO: [BIND 205-100]   1      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100]   2      5      5      0      0     34      9      1237   
+INFO: [BIND 205-100]   3      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100] Final cost: 1237
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.096882 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 373.999 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_6_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 374.226 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 473.8
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     48      9      473.8  
+INFO: [BIND 205-100]   1      9      9      0      0     48      9      473.8  
+INFO: [BIND 205-100]   2      8      8      0      0     48      9      473.8  
+INFO: [BIND 205-100]   3      9      9      0      0     48      9      473.8  
+INFO: [BIND 205-100] Final cost: 473.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.130687 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 374.466 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_7_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 374.594 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 92.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      6      3      92.4   
+INFO: [BIND 205-100]   1      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   2      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100]   3      1      1      0      0      6      3      92.4   
+INFO: [BIND 205-100] Final cost: 92.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.006267 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 374.696 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_8_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 374.851 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 227.6
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     17      9      227.6  
+INFO: [BIND 205-100]   1      7      7      0      0     17      9      227.6  
+INFO: [BIND 205-100]   2      6      6      0      0     17      9      227.6  
+INFO: [BIND 205-100]   3      7      7      0      0     17      9      227.6  
+INFO: [BIND 205-100] Final cost: 227.6
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.010958 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 375.042 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_9_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 375.198 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1237
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     34      9      1237   
+INFO: [BIND 205-100]   1      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100]   2      5      5      0      0     34      9      1237   
+INFO: [BIND 205-100]   3      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100] Final cost: 1237
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.0954 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 375.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_10_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 375.535 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 193.4
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     12      7      193.4  
+INFO: [BIND 205-100]   1      4      4      0      0     12      7      193.4  
+INFO: [BIND 205-100]   2      3      3      0      0     12      7      193.4  
+INFO: [BIND 205-100]   3      4      4      0      0     12      7      193.4  
+INFO: [BIND 205-100] Final cost: 193.4
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.00848 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 375.654 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_11_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 375.864 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1237
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     34      9      1237   
+INFO: [BIND 205-100]   1      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100]   2      5      5      0      0     34      9      1237   
+INFO: [BIND 205-100]   3      6      6      0      0     34      9      1237   
+INFO: [BIND 205-100] Final cost: 1237
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.096742 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 376.080 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_12_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 32.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.37 seconds; current allocated memory: 377.006 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 21267.8
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   1     49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   2     48     48      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   3     49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   4     48     48      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   5     49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   6     48     48      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   7     49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   8     49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   9     48     48      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   10    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   11    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   12    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   13    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   14    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   15    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100]   16    49     49      0      0     150    77     21267.8 
+INFO: [BIND 205-100] Final cost: 21267.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 3.26552 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.5 seconds; current allocated memory: 378.472 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_buf_p_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB2D_buf.1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+WARNING: [SCHED 204-81] Due to pragma (/nobackup/zhliang/AHA/Halide-HLS/apps/hls_examples/harris_hls/../hls_support/Linebuffer.h:179:1), dependence in pipeline region 'LB2D_buf.1' need to be checked during RTL simulation.
+WARNING: [SCHED 204-81]     From : Operation (ID:57) (SV:4) => store i64 %tmp_value_V, i64* %buffer_0_value_V_ad, align 8
+WARNING: [SCHED 204-81]     To   : Operation (ID:36) (SV:2) => %buffer_0_value_V_lo = load i64* %buffer_0_value_V_ad_1, align 8
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 378.789 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1321
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     31     18      1321   
+INFO: [BIND 205-100]   1     12     10      0      0     31     18     1054.8  
+INFO: [BIND 205-100]   2     11      9      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   3     13     11      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   4     12     10      0      0     31     18     1025.8  
+INFO: [BIND 205-100]   5     13     11      0      0     31     18     1025.8  
+INFO: [BIND 205-100] Final cost: 1025.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.089419 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 379.091 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_Loop_LB2D_shift_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LB1D_shiftreg'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 379.273 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 322
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     20      8       322   
+INFO: [BIND 205-100]   1      7      6      0      0     20      8       293   
+INFO: [BIND 205-100]   2      5      5      0      0     20      8       293   
+INFO: [BIND 205-100]   3      6      6      0      0     20      8       293   
+INFO: [BIND 205-100]   4      5      5      0      0     20      8       293   
+INFO: [BIND 205-100] Final cost: 293
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.02552 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 379.448 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'call_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 379.526 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1497.9
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   1      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   2      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100]   3      0      0      0      0      3      1     1497.9  
+INFO: [BIND 205-100] Final cost: 1497.9
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.071289 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 379.642 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'linebuffer_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 379.694 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 1496.9
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   1      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   2      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100]   3      0      0      0      0      1      0     1496.9  
+INFO: [BIND 205-100] Final cost: 1496.9
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 0.065528 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 379.800 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Loop_13_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 19.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 380.685 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 8248.8
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     265    109    8248.8  
+INFO: [BIND 205-100]   1     64     64      0      0     265    109    8248.8  
+INFO: [BIND 205-100]   2     63     63      0      0     265    109    8248.8  
+INFO: [BIND 205-100]   3     64     64      0      0     265    109    8248.8  
+INFO: [BIND 205-100] Final cost: 8248.8
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 1.82522 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.06 seconds; current allocated memory: 382.296 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'hls_target' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 382.752 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-101] Start micro-architecture refinement ...
+INFO: [BIND 205-100] Current cost: 43053.2
+INFO: [BIND 205-100]  Iter  Moves  Swaps Merges  Swept   Fu     Reg     Cost   
+INFO: [BIND 205-100]   0      0      0      0      0     37     20     43053.2 
+INFO: [BIND 205-100]   1     12     11      0      0     37     20     43053.2 
+INFO: [BIND 205-100]   2     11     10      0      0     37     20     43053.2 
+INFO: [BIND 205-100]   3     12     11      0      0     37     20     43053.2 
+INFO: [BIND 205-100] Final cost: 43053.2
+INFO: [BIND 205-101] Done micro-architecture refinement; elapsed 1.44769 sec.
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.84 seconds; current allocated memory: 384.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'linebuffer_Loop_1_pr' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'linebuffer_Loop_1_pr'.
+INFO: [HLS 200-111]  Elapsed time: 0.8 seconds; current allocated memory: 385.167 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_buf_p' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_buffer_0_value_V' to 'call_Loop_LB2D_bubkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_buffer_1_value_V' to 'call_Loop_LB2D_bucud' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_buf_p'.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 386.040 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_shift' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_shift'.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 387.207 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'start_for_call_Loop_LB2D_shift_U0' to 'start_for_call_LodEe' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 387.952 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'linebuffer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'linebuffer'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 388.253 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'linebuffer_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'start_for_linebuffer_U0' to 'start_for_linebufeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'linebuffer_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 388.600 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_1_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 389.069 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_2_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_2_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 389.826 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_3_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_3_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 390.943 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_4_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'hls_target_mul_mul_16s_16s_32_1' to 'hls_target_mul_mufYi' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'hls_target_mul_mufYi': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_4_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 391.573 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_buf_p_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_1_buffer_0_value_V' to 'call_Loop_LB2D_bug8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_1_buffer_1_value_V' to 'call_Loop_LB2D_buhbi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_buf_p_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 392.428 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_shift_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_shift_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 393.605 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'start_for_call_Loop_LB2D_shift_1_U0' to 'start_for_call_Loibs' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_1'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 394.359 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'linebuffer_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'linebuffer_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 394.655 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_5_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_5_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 395.294 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_6_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_6_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 396.498 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_7_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_7_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 397.567 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_8_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] RTL name 'hls_target_mul_mufYi' is changed to 'hls_target_mul_mufYi_x' due to conflict.
+INFO: [RTGEN 206-100] Generating core module 'hls_target_mul_mufYi': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_8_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 398.230 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_9_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_9_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 399.084 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_10_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] RTL name 'hls_target_mul_mufYi' is changed to 'hls_target_mul_mufYi_x' due to conflict.
+INFO: [RTGEN 206-100] Generating core module 'hls_target_mul_mufYi': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_10_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 400.120 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_11_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_11_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 400.913 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_12_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'hls_target_fadd_32ns_32ns_32_5_full_dsp' to 'hls_target_fadd_3jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'hls_target_fsub_32ns_32ns_32_5_full_dsp' to 'hls_target_fsub_3kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'hls_target_fmul_32ns_32ns_32_4_max_dsp' to 'hls_target_fmul_3lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'hls_target_sitofp_32s_32_6' to 'hls_target_sitofpmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'hls_target_mul_34ns_32s_65_2' to 'hls_target_mul_34ncg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'hls_target_fadd_3jbC': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'hls_target_fmul_3lbW': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'hls_target_fsub_3kbM': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'hls_target_mul_34ncg': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'hls_target_sitofpmb6': 6 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_12_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.3 seconds; current allocated memory: 403.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_buf_p_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_2_buffer_0_value_V' to 'call_Loop_LB2D_buocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'call_Loop_LB2D_buf_p_2_buffer_1_value_V' to 'call_Loop_LB2D_bupcA' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_buf_p_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.81 seconds; current allocated memory: 406.858 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_Loop_LB2D_shift_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_Loop_LB2D_shift_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 408.073 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'call_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] RTL name 'fifo_w192_d1_S' is changed to 'fifo_w192_d1_S_x' due to conflict.
+INFO: [SYN 201-210] Renamed object name 'start_for_call_Loop_LB2D_shift_2_U0' to 'start_for_call_LoqcK' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'call_2'.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 408.865 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'linebuffer_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'linebuffer_3'.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 409.169 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_13_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'hls_target_fcmp_32ns_32ns_1_1' to 'hls_target_fcmp_3rcU' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'hls_target_fcmp_3rcU': 18 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_13_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 412.104 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_target' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_target/arg_0_V_value_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_target/arg_0_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_target/arg_1_V_value_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_target/arg_1_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'hls_target' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port config.
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_1_proc_U0' to 'start_for_Loop_1_sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_2_proc_U0' to 'start_for_Loop_2_tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_6_proc_U0' to 'start_for_Loop_6_udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_3_proc_U0' to 'start_for_Loop_3_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_4_proc_U0' to 'start_for_Loop_4_wdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_8_proc_U0' to 'start_for_Loop_8_xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_linebuffer_2_U0' to 'start_for_linebufyd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_5_proc_U0' to 'start_for_Loop_5_zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_12_proc_U0' to 'start_for_Loop_12Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_7_proc_U0' to 'start_for_Loop_7_Bew' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_10_proc_U0' to 'start_for_Loop_10CeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_linebuffer_2_U1_1' to 'start_for_linebufDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_9_proc_U0' to 'start_for_Loop_9_Ee0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_linebuffer_2_U2_2' to 'start_for_linebufFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_11_proc_U0' to 'start_for_Loop_11Gfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_linebuffer_3_U0' to 'start_for_linebufHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'start_for_Loop_13_proc_U0' to 'start_for_Loop_13IfE' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_target'.
+INFO: [HLS 200-111]  Elapsed time: 1.18 seconds; current allocated memory: 418.855 MB.
+INFO: [RTMG 210-278] Implementing memory 'call_Loop_LB2D_bubkb_ram' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'call_Loop_LB2D_bug8j_ram' using block RAMs.
+INFO: [RTMG 210-282] Generating pipelined core: 'hls_target_mul_34ncg_MulnS_0'
+INFO: [RTMG 210-278] Implementing memory 'call_Loop_LB2D_buocq_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:04:10 ; elapsed = 00:03:44 . Memory (MB): peak = 853.945 ; gain = 524.789 ; free physical = 106040 ; free virtual = 207623
+INFO: [SYSC 207-301] Generating SystemC RTL for hls_target.
+INFO: [VHDL 208-304] Generating VHDL RTL for hls_target.
+INFO: [VLOG 209-307] Generating Verilog RTL for hls_target.
+INFO: [HLS 200-112] Total elapsed time: 223.76 seconds; peak allocated memory: 418.855 MB.
