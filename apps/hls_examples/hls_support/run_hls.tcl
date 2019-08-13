@@ -26,8 +26,8 @@ csim_design -compiler clang -O -ldflags ${LD_FLAGS} -argv $env(RUN_ARGS)
 # C-to-Verilog synthesis
 csynth_design
 
-# Co-simulation (i.e. verifying RTL using C testbench)
-#cosim_design -O -ldflags ${LD_FLAGS} -argv $env(RUN_ARGS)
+# # Co-simulation (i.e. verifying RTL using C testbench)
+# cosim_design /home/zhliang/AHA/lib/gcc-4.9/bin/gcc -O -ldflags ${LD_FLAGS} -argv $env(RUN_ARGS)
 
 # export the RTL design as a Xilix IP Catalog
 #export_design -format ip_catalog

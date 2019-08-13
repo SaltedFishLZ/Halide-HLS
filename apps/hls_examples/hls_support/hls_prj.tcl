@@ -19,3 +19,5 @@ create_clock -period 10 -name default
 #config_rom_infer -array_size_threshold 1024
 config_bind -effort high
 config_schedule -effort high
+
+exit
