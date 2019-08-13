@@ -2312,22 +2312,49 @@ int pipeline_hls(struct halide_buffer_t *_p2_input_buffer, struct halide_buffer_
        64,
        0
       };
+
+
+      /* Zheng HACK BEGINS*/
+      /* -------------------------------- */
+      //        original codes            //
+      /* -------------------------------- */
+    //   struct halide_dimension_t *_310 = (struct halide_dimension_t *)(&s5);
+    //   struct halide_buffer_t *_311 = _halide_buffer_init(_306, _307, _hw_output_1, _308, _309, 1, 8, 2, _310, _308);
+    //   struct halide_buffer_t * _hw_output_1_buffer = _311;
+    //   // produce hw_output$1
+    //   hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
+    //   void *_312 = ((uint8_t *)_padded_1 + 0);
+    //   int32_t _313 = _269 - _256;
+    //   int32_t _314 = _313 + 4;
+    //   subimage_to_stream(_padded_1_buffer, _padded_1_stencil_update_stream, _312, 1, 70, _314, 70);
+    //   (void)0;
+    //   _padded_1_free.free();
+    //   hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
+    //   hls_target(_hw_output_1_stencil_stream, _padded_1_stencil_update_stream);
+    //   void *_701 = ((uint8_t *)_hw_output_1 + 0);
+    //   stream_to_subimage(_hw_output_1_buffer, _hw_output_1_stencil_stream, _701, 1, 64, 64, 64);
+    //   (void)0;
+
       struct halide_dimension_t *_310 = (struct halide_dimension_t *)(&s5);
       struct halide_buffer_t *_311 = _halide_buffer_init(_306, _307, _hw_output_1, _308, _309, 1, 8, 2, _310, _308);
       struct halide_buffer_t * _hw_output_1_buffer = _311;
       // produce hw_output$1
-      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
       void *_312 = ((uint8_t *)_padded_1 + 0);
       int32_t _313 = _269 - _256;
       int32_t _314 = _313 + 4;
-      subimage_to_stream(_padded_1_buffer, _padded_1_stencil_update_stream, _312, 1, 70, _314, 70);
-      (void)0;
-      _padded_1_free.free();
-      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
-      hls_target(_hw_output_1_stencil_stream, _padded_1_stencil_update_stream);
+
       void *_701 = ((uint8_t *)_hw_output_1 + 0);
+
+      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
+      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
+
+      subimage_to_stream(_padded_1_buffer, _padded_1_stencil_update_stream, _312, 1, 70, _314, 70);
+
+      hls_target(_hw_output_1_stencil_stream, _padded_1_stencil_update_stream);
       stream_to_subimage(_hw_output_1_buffer, _hw_output_1_stencil_stream, _701, 1, 64, 64, 64);
-      (void)0;
+
+      /* Zheng HACK ENDS*/
+
       // consume hw_output$1
       for (int _output_1_s0_y_yi = 0; _output_1_s0_y_yi < 0 + 64; _output_1_s0_y_yi++)
       {

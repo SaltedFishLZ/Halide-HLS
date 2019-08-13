@@ -26,6 +26,21 @@ run_cuda: pipeline_native.o pipeline_cuda.o run_cuda.cpp
 out.png: run
 	./run ../../images/benchmark_8mp_gray.png
 
+hls_prj: ../hls_support/hls_prj.tcl hls_target.cpp pipeline_hls.cpp run.cpp
+	RUN_PATH=$(realpath ./) \
+	RUN_ARGS=$(realpath ./../../images/benchmark_8mp_gray.png) \
+	vivado_hls -f $< -l $(HLS_LOG)
+
+hls_csim: ../hls_support/hls_csim.tcl hls_target.cpp pipeline_hls.cpp run.cpp
+	RUN_PATH=$(realpath ./) \
+	RUN_ARGS=$(realpath ./../../images/benchmark_8mp_gray.png) \
+	vivado_hls -f $< -l $(HLS_LOG)
+
+hls_syn: ../hls_support/hls_syn.tcl hls_target.cpp pipeline_hls.cpp run.cpp
+	RUN_PATH=$(realpath ./) \
+	RUN_ARGS=$(realpath ./../../images/benchmark_8mp_gray.png) \
+	vivado_hls -f $< -l $(HLS_LOG)
+
 $(HLS_LOG): ../hls_support/run_hls.tcl pipeline_hls.cpp run.cpp
 	RUN_PATH=$(realpath ./) \
 	RUN_ARGS=$(realpath ./../../images/benchmark_8mp_gray.png) \
