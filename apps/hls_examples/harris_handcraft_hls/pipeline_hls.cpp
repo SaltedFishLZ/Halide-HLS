@@ -1778,6 +1778,7 @@ halide_buffer_t *_halide_buffer_crop(halide_buffer_t *dst,
 #include <hls_stream.h>
 #include "Stencil.h"
 #include "hls_target.h"
+#include "hls_wrapper.h"
 
 struct buffer_t;
 
@@ -2345,13 +2346,12 @@ int pipeline_hls(struct halide_buffer_t *_p2_input_buffer, struct halide_buffer_
 
       void *_701 = ((uint8_t *)_hw_output_1 + 0);
 
-      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
-      hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
-
-      subimage_to_stream(_padded_1_buffer, _padded_1_stencil_update_stream, _312, 1, 70, _314, 70);
-
-      hls_target(_hw_output_1_stencil_stream, _padded_1_stencil_update_stream);
-      stream_to_subimage(_hw_output_1_buffer, _hw_output_1_stencil_stream, _701, 1, 64, 64, 64);
+      hls_wrapper(
+          _312,
+          1, 70, _314, 70,
+          _701,
+          1, 64, 64, 64
+          );
 
       /* Zheng HACK ENDS*/
 
