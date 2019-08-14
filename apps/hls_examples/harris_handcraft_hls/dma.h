@@ -17,13 +17,8 @@ namespace dma
                 for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
                     for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
                         int offset = (idx_0 + st_idx_0) * stride_0 +
-                            (idx_1 + st_idx_1) * stride_1 +
-                            (idx_2 + st_idx_2) * stride_2 +
-                            (idx_3 + st_idx_3) * stride_3;
-                        stencil(st_idx_0,
-                                st_idx_1,
-                                st_idx_2,
-                                st_idx_3) = *((T *)subimage + offset);
+                            (idx_1 + st_idx_1) * stride_1;
+                        stencil(st_idx_0, st_idx_1) = *((T *)subimage + offset);
                     }
 
                 // push to stream
@@ -47,13 +42,8 @@ namespace dma
                 for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
                     for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
                         int offset = (idx_0 + st_idx_0) * stride_0 +
-                            (idx_1 + st_idx_1) * stride_1 +
-                            (idx_2 + st_idx_2) * stride_2 +
-                            (idx_3 + st_idx_3) * stride_3;
-                        *((T *)subimage + offset) = stencil(st_idx_0,
-                                                            st_idx_1,
-                                                            st_idx_2,
-                                                            st_idx_3);
+                            (idx_1 + st_idx_1) * stride_1;
+                        *((T *)subimage + offset) = stencil(st_idx_0, st_idx_1);
                     }
             }
     }
