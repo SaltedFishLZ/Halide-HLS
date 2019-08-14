@@ -4,7 +4,7 @@
 namespace dma
 {
     template <typename T, size_t EXTENT_0, size_t EXTENT_1, size_t EXTENT_2, size_t EXTENT_3>
-    void cpu2fpga(hls::stream<AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
+    void cpu2fpga(hls::stream<PackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
                   void *subimage,
                   int stride_0, int subimage_extent_0,
                   int stride_1 = 1, int subimage_extent_1 = 1) {
@@ -27,7 +27,7 @@ namespace dma
     }
 
     template <typename T, size_t EXTENT_0, size_t EXTENT_1, size_t EXTENT_2, size_t EXTENT_3>
-    void fpga2cpu(hls::stream<AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
+    void fpga2cpu(hls::stream<PackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
                   void *subimage,
                   int stride_0, int subimage_extent_0,
                   int stride_1 = 1, int subimage_extent_1 = 1) {

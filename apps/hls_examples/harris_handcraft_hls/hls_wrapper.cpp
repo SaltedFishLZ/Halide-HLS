@@ -29,8 +29,8 @@ void hls_wrapper(
 #pragma HLS INTERFACE s_axilite port=return bundle=control
 
 #pragma HLS DATAFLOW
-    static hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
-    static hls::stream<AxiPackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
+    static hls::stream<PackedStencil<uint8_t, 2, 1> > _padded_1_stencil_update_stream;
+    static hls::stream<PackedStencil<uint8_t, 2, 1> > _hw_output_1_stencil_stream;
 
     dma::cpu2fpga(_padded_1_stencil_update_stream,
                   in,

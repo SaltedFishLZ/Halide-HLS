@@ -7,8 +7,8 @@
 
 #include "halide_math.h"
 void hls_target(
-hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_0,
-hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
+hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_0,
+hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 {
 #pragma HLS DATAFLOW
 #pragma HLS INLINE region
@@ -17,8 +17,8 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
 // #pragma HLS INTERFACE axis register port=arg_1
 
  // alias the arguments
- hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &_hw_output_1_stencil_stream = arg_0;
- hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &_padded_1_stencil_update_stream = arg_1;
+ hls::stream<PackedStencil<uint8_t, 2, 1> > &_hw_output_1_stencil_stream = arg_0;
+ hls::stream<PackedStencil<uint8_t, 2, 1> > &_padded_1_stencil_update_stream = arg_1;
 
  hls::stream<PackedStencil<uint8_t, 4, 3> > _padded_1_stencil_stream;
 #pragma HLS STREAM variable=_padded_1_stencil_stream depth=1
@@ -29,50 +29,53 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
 
-   // linebuffer<70, 70>(_padded_1_stencil_update_stream, _padded_1_stencil_stream);
-   hls::stream<uint32_t> addr_in_2D_0("addr_in_2D_0");
-   hls::stream<uint32_t> addr_out_2D_0("addr_out_2D_0");
-   hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_0("bank_in_2D_0");
-   hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_0("bank_out_2D_0");
-#pragma HLS STREAM variable = addr_in_2D depth = 1
-#pragma HLS STREAM variable = addr_out_2D depth = 1
-#pragma HLS STREAM variable = bank_in_2D depth = 1
-#pragma HLS STREAM variable = bank_out_2D depth = 1
+   linebuffer<70, 70>(_padded_1_stencil_update_stream, _padded_1_stencil_stream);
 
-   uint16_t rng_in_2d_0[2] = {70, 70};
-   uint16_t st_in_2d_0[2] = {1,0};
-   uint16_t rng_out_2d_0[2] = {70, 70};
-   uint16_t st_out_2d_0[2] = {1,0};
+//    hls::stream<uint32_t> addr_in_2D_0("addr_in_2D_0");
+//    hls::stream<uint32_t> addr_out_2D_0("addr_out_2D_0");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_0("bank_in_2D_0");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_out_2D_0("bank_out_2D_0");
+// #pragma HLS STREAM variable = addr_in_2D depth = 1
+// #pragma HLS STREAM variable = addr_out_2D depth = 1
+// #pragma HLS STREAM variable = bank_in_2D depth = 1
+// #pragma HLS STREAM variable = bank_out_2D depth = 1
 
-   Stencil<uint32_t, 1> write_start_0;
-   write_start_0(0) = 0;
-   Stencil<uint32_t, 3> read_start_0;
-   read_start_0(0) = 0;
-   read_start_0(1) = 1;
-   read_start_0(2) = 2;
+//    uint16_t rng_in_2d_0[2] = {70, 70};
+//    uint16_t st_in_2d_0[2] = {1,0};
+//    uint16_t rng_out_2d_0[2] = {70, 70};
+//    uint16_t st_out_2d_0[2] = {1,0};
 
-   uint16_t rng_write_bank_2d_0[3] = {70, 3, 6};
-   uint16_t st_write_bank_2d_0[3] = {0, 1, 0};
-   uint16_t rng_read_bank_2d_0[3] = {70, 3, 5};
-   uint16_t st_read_bank_2d_0[3] = {0, 1, 0};
+//    Stencil<uint32_t, 1> write_start_0;
+//    write_start_0(0) = 0;
+//    Stencil<uint32_t, 3> read_start_0;
+//    read_start_0(0) = 0;
+//    read_start_0(1) = 1;
+//    read_start_0(2) = 2;
 
-   AddrGenTemp<2>(addr_in_2D_0, 70 * 70 , rng_in_2d_0, st_in_2d_0);
-   AddrGenTemp<2>(addr_out_2D_0, 68 * 68, rng_out_2d_0, st_out_2d_0);
+//    uint16_t rng_write_bank_2d_0[3] = {70, 3, 6};
+//    uint16_t st_write_bank_2d_0[3] = {0, 1, 0};
+//    uint16_t rng_read_bank_2d_0[3] = {70, 3, 5};
+//    uint16_t st_read_bank_2d_0[3] = {0, 1, 0};
 
-   BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_0, write_start_0,
-                                              70 * 70, 3,
-                                              rng_write_bank_2d_0, st_write_bank_2d_0);
-   BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_0, read_start_0,
-                                              70 * 70, 3,
-                                              rng_read_bank_2d_0, st_read_bank_2d_0);
+//    AddrGenTemp<2>(addr_in_2D_0, 70 * 70 , rng_in_2d_0, st_in_2d_0);
+//    AddrGenTemp<2>(addr_out_2D_0, 68 * 68, rng_out_2d_0, st_out_2d_0);
 
-   U_BUFFER<70, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_padded_1_stencil_update_stream,
-                                                       _padded_1_stencil_stream,
-                                                       bank_in_2D_0, bank_out_2D_0,
-                                                       addr_in_2D_0, addr_out_2D_0,
-                                                       2 * 70 + 1,
-                                                       70 * 70 + 1,
-                                                       70 * 70, 1, 1);
+//    BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_0, write_start_0,
+//                                               70 * 70, 3,
+//                                               rng_write_bank_2d_0, st_write_bank_2d_0);
+//    BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_0, read_start_0,
+//                                               70 * 70, 3,
+//                                               rng_read_bank_2d_0, st_read_bank_2d_0);
+
+//    U_BUFFER<70, 3, DATAWIDTH, 1, 1, 1, 1, uint8_t>::call(
+//       _padded_1_stencil_update_stream,
+//       _padded_1_stencil_stream,
+//       bank_in_2D_0, bank_out_2D_0,
+//       addr_in_2D_0, addr_out_2D_0,
+//       2 * 70 + 1,
+//       70 * 70 + 1,
+//       70 * 70, 1, 1
+//    );
 
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
@@ -234,51 +237,53 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
 
-   // linebuffer<68, 68>(_grad_xx_1_stencil_update_stream, _grad_xx_1_stencil_stream);
+   linebuffer<68, 68>(_grad_xx_1_stencil_update_stream, _grad_xx_1_stencil_stream);
 
-   hls::stream<uint32_t> addr_in_2D_1("addr_in_2D_1");
-   hls::stream<uint32_t> addr_out_2D_1("addr_out_2D_1");
-   hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_1("bank_in_2D_1");
-   hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_1("bank_out_2D_1");
-#pragma HLS STREAM variable = addr_in_2D_1 depth = 1
-#pragma HLS STREAM variable = addr_out_2D_1 depth = 1
-#pragma HLS STREAM variable = bank_in_2D_1 depth = 1
-#pragma HLS STREAM variable = bank_out_2D_1 depth = 1
+//    hls::stream<uint32_t> addr_in_2D_1("addr_in_2D_1");
+//    hls::stream<uint32_t> addr_out_2D_1("addr_out_2D_1");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_1("bank_in_2D_1");
+//    hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_1("bank_out_2D_1");
+// #pragma HLS STREAM variable = addr_in_2D_1 depth = 1
+// #pragma HLS STREAM variable = addr_out_2D_1 depth = 1
+// #pragma HLS STREAM variable = bank_in_2D_1 depth = 1
+// #pragma HLS STREAM variable = bank_out_2D_1 depth = 1
 
-   uint16_t rng_in_2d_1[2] = {68, 68};
-   uint16_t st_in_2d_1[2] = {1, 0};
-   uint16_t rng_out_2d_1[2] = {68, 68};
-   uint16_t st_out_2d_1[2] = {1, 0};
+//    uint16_t rng_in_2d_1[2] = {68, 68};
+//    uint16_t st_in_2d_1[2] = {1, 0};
+//    uint16_t rng_out_2d_1[2] = {68, 68};
+//    uint16_t st_out_2d_1[2] = {1, 0};
 
-   Stencil<uint32_t, 1> write_start_1;
-   write_start_1(0) = 0;
-   Stencil<uint32_t, 3> read_start_1;
-   read_start_1(0) = 0;
-   read_start_1(1) = 1;
-   read_start_1(2) = 2;
+//    Stencil<uint32_t, 1> write_start_1;
+//    write_start_1(0) = 0;
+//    Stencil<uint32_t, 3> read_start_1;
+//    read_start_1(0) = 0;
+//    read_start_1(1) = 1;
+//    read_start_1(2) = 2;
 
-   uint16_t rng_write_bank_2d_1[3] = {68, 3, 6};
-   uint16_t st_write_bank_2d_1[3] = {0, 1, 0};
-   uint16_t rng_read_bank_2d_1[3] = {68, 3, 5};
-   uint16_t st_read_bank_2d_1[3] = {0, 1, 0};
+//    uint16_t rng_write_bank_2d_1[3] = {68, 3, 6};
+//    uint16_t st_write_bank_2d_1[3] = {0, 1, 0};
+//    uint16_t rng_read_bank_2d_1[3] = {68, 3, 5};
+//    uint16_t st_read_bank_2d_1[3] = {0, 1, 0};
 
-   AddrGenTemp<2>(addr_in_2D_1, 68 * 68 , rng_in_2d_1, st_in_2d_1);
-   AddrGenTemp<2>(addr_out_2D_1, 66 * 66, rng_out_2d_1, st_out_2d_1);
+//    AddrGenTemp<2>(addr_in_2D_1, 68 * 68 , rng_in_2d_1, st_in_2d_1);
+//    AddrGenTemp<2>(addr_out_2D_1, 66 * 66, rng_out_2d_1, st_out_2d_1);
 
-   BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_1, write_start_1,
-                                              68 * 68, 3,
-                                              rng_write_bank_2d_1, st_write_bank_2d_1);
-   BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_1, read_start_1,
-                                              68 * 68, 3,
-                                              rng_read_bank_2d_1, st_read_bank_2d_1);
+//    BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_1, write_start_1,
+//                                               68 * 68, 3,
+//                                               rng_write_bank_2d_1, st_write_bank_2d_1);
+//    BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_1, read_start_1,
+//                                               68 * 68, 3,
+//                                               rng_read_bank_2d_1, st_read_bank_2d_1);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_xx_1_stencil_update_stream,
-                                                       _grad_xx_1_stencil_stream,
-                                                       bank_in_2D_1, bank_out_2D_1,
-                                                       addr_in_2D_1, addr_out_2D_1,
-                                                       2 * 68 + 1,
-                                                       68 * 68 + 1,
-                                                       68 * 68, 1, 1);
+//    U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 1, int32_t>::call(
+//       _grad_xx_1_stencil_update_stream,
+//       _grad_xx_1_stencil_stream,
+//       bank_in_2D_1, bank_out_2D_1,
+//       addr_in_2D_1, addr_out_2D_1,
+//       2 * 68 + 1,
+//       68 * 68 + 1,
+//       68 * 68, 1, 1
+//    );
 
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
@@ -527,51 +532,53 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
    
-   // linebuffer<68, 68>(_grad_xy_1_stencil_update_stream, _grad_xy_1_stencil_stream);
+   linebuffer<68, 68>(_grad_xy_1_stencil_update_stream, _grad_xy_1_stencil_stream);
 
-   hls::stream<uint32_t> addr_in_2D_2("addr_in_2D_2");
-   hls::stream<uint32_t> addr_out_2D_2("addr_out_2D_2");
-   hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_2("bank_in_2D_2");
-   hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_2("bank_out_2D_2");
-#pragma HLS STREAM variable = addr_in_2D_2 depth = 1
-#pragma HLS STREAM variable = addr_out_2D_2 depth = 1
-#pragma HLS STREAM variable = bank_in_2D_2 depth = 1
-#pragma HLS STREAM variable = bank_out_2D_2 depth = 1
+//    hls::stream<uint32_t> addr_in_2D_2("addr_in_2D_2");
+//    hls::stream<uint32_t> addr_out_2D_2("addr_out_2D_2");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_2("bank_in_2D_2");
+//    hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_2("bank_out_2D_2");
+// #pragma HLS STREAM variable = addr_in_2D_2 depth = 1
+// #pragma HLS STREAM variable = addr_out_2D_2 depth = 1
+// #pragma HLS STREAM variable = bank_in_2D_2 depth = 1
+// #pragma HLS STREAM variable = bank_out_2D_2 depth = 1
 
-   uint16_t rng_in_2d_2[2] = {68, 68};
-   uint16_t st_in_2d_2[2] = {1, 0};
-   uint16_t rng_out_2d_2[2] = {68, 68};
-   uint16_t st_out_2d_2[2] = {1, 0};
+//    uint16_t rng_in_2d_2[2] = {68, 68};
+//    uint16_t st_in_2d_2[2] = {1, 0};
+//    uint16_t rng_out_2d_2[2] = {68, 68};
+//    uint16_t st_out_2d_2[2] = {1, 0};
 
-   Stencil<uint32_t, 1> write_start_2;
-   write_start_2(0) = 0;
-   Stencil<uint32_t, 3> read_start_2;
-   read_start_2(0) = 0;
-   read_start_2(1) = 1;
-   read_start_2(2) = 2;
+//    Stencil<uint32_t, 1> write_start_2;
+//    write_start_2(0) = 0;
+//    Stencil<uint32_t, 3> read_start_2;
+//    read_start_2(0) = 0;
+//    read_start_2(1) = 1;
+//    read_start_2(2) = 2;
 
-   uint16_t rng_write_bank_2d_2[3] = {68, 3, 6};
-   uint16_t st_write_bank_2d_2[3] = {0, 1, 0};
-   uint16_t rng_read_bank_2d_2[3] = {68, 3, 5};
-   uint16_t st_read_bank_2d_2[3] = {0, 1, 0};
+//    uint16_t rng_write_bank_2d_2[3] = {68, 3, 6};
+//    uint16_t st_write_bank_2d_2[3] = {0, 1, 0};
+//    uint16_t rng_read_bank_2d_2[3] = {68, 3, 5};
+//    uint16_t st_read_bank_2d_2[3] = {0, 1, 0};
 
-   AddrGenTemp<2>(addr_in_2D_2, 68 * 68 , rng_in_2d_2, st_in_2d_2);
-   AddrGenTemp<2>(addr_out_2D_2, 66 * 66, rng_out_2d_2, st_out_2d_2);
+//    AddrGenTemp<2>(addr_in_2D_2, 68 * 68 , rng_in_2d_2, st_in_2d_2);
+//    AddrGenTemp<2>(addr_out_2D_2, 66 * 66, rng_out_2d_2, st_out_2d_2);
 
-   BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_2, write_start_2,
-                                              68 * 68, 3,
-                                              rng_write_bank_2d_2, st_write_bank_2d_2);
-   BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_2, read_start_2,
-                                              68 * 68, 3,
-                                              rng_read_bank_2d_2, st_read_bank_2d_2);
+//    BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_2, write_start_2,
+//                                               68 * 68, 3,
+//                                               rng_write_bank_2d_2, st_write_bank_2d_2);
+//    BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_2, read_start_2,
+//                                               68 * 68, 3,
+//                                               rng_read_bank_2d_2, st_read_bank_2d_2);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_xy_1_stencil_update_stream,
-                                                       _grad_xy_1_stencil_stream,
-                                                       bank_in_2D_2, bank_out_2D_2,
-                                                       addr_in_2D_2, addr_out_2D_2,
-                                                       2 * 68 + 1,
-                                                       68 * 68 + 1,
-                                                       68 * 68, 1, 1);
+//    U_BUFFER<68, 3, 4, 3, 1, 1, 1, int32_t>::call(
+//       _grad_xy_1_stencil_update_stream,
+//       _grad_xy_1_stencil_stream,
+//       bank_in_2D_2, bank_out_2D_2,
+//       addr_in_2D_2, addr_out_2D_2,
+//       2 * 68 + 1,
+//       68 * 68 + 1,
+//       68 * 68, 1, 1
+//    );
 
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
@@ -723,51 +730,51 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
 
-   // linebuffer<68, 68>(_grad_yy_1_stencil_update_stream, _grad_yy_1_stencil_stream);
+   linebuffer<68, 68>(_grad_yy_1_stencil_update_stream, _grad_yy_1_stencil_stream);
 
-   hls::stream<uint32_t> addr_in_2D_3("addr_in_2D_3");
-   hls::stream<uint32_t> addr_out_2D_3("addr_out_2D_3");
-   hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_3("bank_in_2D_3");
-   hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_3("bank_out_2D_3");
-#pragma HLS STREAM variable = addr_in_2D_3 depth = 1
-#pragma HLS STREAM variable = addr_out_2D_3 depth = 1
-#pragma HLS STREAM variable = bank_in_2D_3 depth = 1
-#pragma HLS STREAM variable = bank_out_2D_3 depth = 1
+//    hls::stream<uint32_t> addr_in_2D_3("addr_in_2D_3");
+//    hls::stream<uint32_t> addr_out_2D_3("addr_out_2D_3");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_3("bank_in_2D_3");
+//    hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_3("bank_out_2D_3");
+// #pragma HLS STREAM variable = addr_in_2D_3 depth = 1
+// #pragma HLS STREAM variable = addr_out_2D_3 depth = 1
+// #pragma HLS STREAM variable = bank_in_2D_3 depth = 1
+// #pragma HLS STREAM variable = bank_out_2D_3 depth = 1
 
-   uint16_t rng_in_2d_3[2] = {68, 68};
-   uint16_t st_in_2d_3[2] = {1, 0};
-   uint16_t rng_out_2d_3[2] = {68, 68};
-   uint16_t st_out_2d_3[2] = {1, 0};
+//    uint16_t rng_in_2d_3[2] = {68, 68};
+//    uint16_t st_in_2d_3[2] = {1, 0};
+//    uint16_t rng_out_2d_3[2] = {68, 68};
+//    uint16_t st_out_2d_3[2] = {1, 0};
 
-   Stencil<uint32_t, 1> write_start_3;
-   write_start_3(0) = 0;
-   Stencil<uint32_t, 3> read_start_3;
-   read_start_3(0) = 0;
-   read_start_3(1) = 1;
-   read_start_3(2) = 2;
+//    Stencil<uint32_t, 1> write_start_3;
+//    write_start_3(0) = 0;
+//    Stencil<uint32_t, 3> read_start_3;
+//    read_start_3(0) = 0;
+//    read_start_3(1) = 1;
+//    read_start_3(2) = 2;
 
-   uint16_t rng_write_bank_2d_3[3] = {68, 3, 6};
-   uint16_t st_write_bank_2d_3[3] = {0, 1, 0};
-   uint16_t rng_read_bank_2d_3[3] = {68, 3, 5};
-   uint16_t st_read_bank_2d_3[3] = {0, 1, 0};
+//    uint16_t rng_write_bank_2d_3[3] = {68, 3, 6};
+//    uint16_t st_write_bank_2d_3[3] = {0, 1, 0};
+//    uint16_t rng_read_bank_2d_3[3] = {68, 3, 5};
+//    uint16_t st_read_bank_2d_3[3] = {0, 1, 0};
 
-   AddrGenTemp<2>(addr_in_2D_3, 68 * 68 , rng_in_2d_3, st_in_2d_3);
-   AddrGenTemp<2>(addr_out_2D_3, 66 * 66, rng_out_2d_3, st_out_2d_3);
+//    AddrGenTemp<2>(addr_in_2D_3, 68 * 68 , rng_in_2d_3, st_in_2d_3);
+//    AddrGenTemp<2>(addr_out_2D_3, 66 * 66, rng_out_2d_3, st_out_2d_3);
 
-   BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_3, write_start_3,
-                                              68 * 68, 3,
-                                              rng_write_bank_2d_3, st_write_bank_2d_3);
-   BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_3, read_start_3,
-                                              68 * 68, 3,
-                                              rng_read_bank_2d_3, st_read_bank_2d_3);
+//    BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_3, write_start_3,
+//                                               68 * 68, 3,
+//                                               rng_write_bank_2d_3, st_write_bank_2d_3);
+//    BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_3, read_start_3,
+//                                               68 * 68, 3,
+//                                               rng_read_bank_2d_3, st_read_bank_2d_3);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_yy_1_stencil_stream,
-                                                       _grad_yy_1_stencil_stream,
-                                                       bank_in_2D_3, bank_out_2D_3,
-                                                       addr_in_2D_3, addr_out_2D_3,
-                                                       2 * 68 + 1,
-                                                       68 * 68 + 1,
-                                                       68 * 68, 1, 1);
+//    U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_yy_1_stencil_stream,
+//                                                        _grad_yy_1_stencil_stream,
+//                                                        bank_in_2D_3, bank_out_2D_3,
+//                                                        addr_in_2D_3, addr_out_2D_3,
+//                                                        2 * 68 + 1,
+//                                                        68 * 68 + 1,
+//                                                        68 * 68, 1, 1);
 
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
@@ -1002,51 +1009,51 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
 
-   // linebuffer<66, 66>(_p2_cim_stencil_update_stream, _p2_cim_stencil_stream);
+   linebuffer<66, 66>(_p2_cim_stencil_update_stream, _p2_cim_stencil_stream);
 
-   hls::stream<uint32_t> addr_in_2D_4("addr_in_2D_4");
-   hls::stream<uint32_t> addr_out_2D_4("addr_out_2D_4");
-   hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_4("bank_in_2D_4");
-   hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_4("bank_out_2D_4");
-#pragma HLS STREAM variable = addr_in_2D_4 depth = 1
-#pragma HLS STREAM variable = addr_out_2D_4 depth = 1
-#pragma HLS STREAM variable = bank_in_2D_4 depth = 1
-#pragma HLS STREAM variable = bank_out_2D_4 depth = 1
+//    hls::stream<uint32_t> addr_in_2D_4("addr_in_2D_4");
+//    hls::stream<uint32_t> addr_out_2D_4("addr_out_2D_4");
+//    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_4("bank_in_2D_4");
+//    hls::stream<PackedStencil<uint32_t, 3, 1, 1, 1> > bank_out_2D_4("bank_out_2D_4");
+// #pragma HLS STREAM variable = addr_in_2D_4 depth = 1
+// #pragma HLS STREAM variable = addr_out_2D_4 depth = 1
+// #pragma HLS STREAM variable = bank_in_2D_4 depth = 1
+// #pragma HLS STREAM variable = bank_out_2D_4 depth = 1
 
-   uint16_t rng_in_2d_4[2] = {66, 66};
-   uint16_t st_in_2d_4[2] = {1, 0};
-   uint16_t rng_out_2d_4[2] = {66, 66};
-   uint16_t st_out_2d_4[2] = {1, 0};
+//    uint16_t rng_in_2d_4[2] = {66, 66};
+//    uint16_t st_in_2d_4[2] = {1, 0};
+//    uint16_t rng_out_2d_4[2] = {66, 66};
+//    uint16_t st_out_2d_4[2] = {1, 0};
 
-   Stencil<uint32_t, 1> write_start_4;
-   write_start_4(0) = 0;
-   Stencil<uint32_t, 3> read_start_4;
-   read_start_4(0) = 0;
-   read_start_4(1) = 1;
-   read_start_4(2) = 2;
+//    Stencil<uint32_t, 1> write_start_4;
+//    write_start_4(0) = 0;
+//    Stencil<uint32_t, 3> read_start_4;
+//    read_start_4(0) = 0;
+//    read_start_4(1) = 1;
+//    read_start_4(2) = 2;
 
-   uint16_t rng_write_bank_2d_4[3] = {66, 3, 6};
-   uint16_t st_write_bank_2d_4[3] = {0, 1, 0};
-   uint16_t rng_read_bank_2d_4[3] = {66, 3, 5};
-   uint16_t st_read_bank_2d_4[3] = {0, 1, 0};
+//    uint16_t rng_write_bank_2d_4[3] = {66, 3, 6};
+//    uint16_t st_write_bank_2d_4[3] = {0, 1, 0};
+//    uint16_t rng_read_bank_2d_4[3] = {66, 3, 5};
+//    uint16_t st_read_bank_2d_4[3] = {0, 1, 0};
 
-   AddrGenTemp<2>(addr_in_2D_4, 66 * 66 , rng_in_2d_4, st_in_2d_4);
-   AddrGenTemp<2>(addr_out_2D_4, 64 * 64, rng_out_2d_4, st_out_2d_4);
+//    AddrGenTemp<2>(addr_in_2D_4, 66 * 66 , rng_in_2d_4, st_in_2d_4);
+//    AddrGenTemp<2>(addr_out_2D_4, 64 * 64, rng_out_2d_4, st_out_2d_4);
 
-   BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_4, write_start_4,
-                                              66 * 66, 3,
-                                              rng_write_bank_2d_4, st_write_bank_2d_4);
-   BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_4, read_start_4,
-                                              66 * 66, 3,
-                                              rng_read_bank_2d_4, st_read_bank_2d_4);
+//    BankIDGenCircular<uint32_t, 3, 1, 1, 1, 1>(bank_in_2D_4, write_start_4,
+//                                               66 * 66, 3,
+//                                               rng_write_bank_2d_4, st_write_bank_2d_4);
+//    BankIDGenCircular<uint32_t, 3, 3, 1, 1, 1>(bank_out_2D_4, read_start_4,
+//                                               66 * 66, 3,
+//                                               rng_read_bank_2d_4, st_read_bank_2d_4);
 
-   U_BUFFER<66, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_p2_cim_stencil_update_stream,
-                                                       _p2_cim_stencil_stream,
-                                                       bank_in_2D_4, bank_out_2D_4,
-                                                       addr_in_2D_4, addr_out_2D_4,
-                                                       2 * 66 + 1,
-                                                       66 * 66 + 1,
-                                                       66 * 66, 1, 1);
+//    U_BUFFER<66, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_p2_cim_stencil_update_stream,
+//                                                        _p2_cim_stencil_stream,
+//                                                        bank_in_2D_4, bank_out_2D_4,
+//                                                        addr_in_2D_4, addr_out_2D_4,
+//                                                        2 * 66 + 1,
+//                                                        66 * 66 + 1,
+//                                                        66 * 66, 1, 1);
 
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
