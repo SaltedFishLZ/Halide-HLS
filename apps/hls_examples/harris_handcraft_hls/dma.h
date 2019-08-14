@@ -7,30 +7,27 @@ namespace dma
     void cpu2fpga(hls::stream<AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
                   void *subimage,
                   int stride_0, int subimage_extent_0,
-                  int stride_1 = 1, int subimage_extent_1 = 1,
-                  int stride_2 = 1, int subimage_extent_2 = 1,
-                  int stride_3 = 1, int subimage_extent_3 = 1) {
-        for(size_t idx_3 = 0; idx_3 < (unsigned)subimage_extent_3; idx_3 += EXTENT_3)
-            for(size_t idx_2 = 0; idx_2 < (unsigned)subimage_extent_2; idx_2 += EXTENT_2)
-                for(size_t idx_1 = 0; idx_1 < (unsigned)subimage_extent_1; idx_1 += EXTENT_1)
-                    for(size_t idx_0 = 0; idx_0 < (unsigned)subimage_extent_0; idx_0 += EXTENT_0) {
-                        // assemble stencil
-                        Stencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> stencil;
-                        for(size_t st_idx_3 = 0; st_idx_3 < EXTENT_3; st_idx_3++)
-                            for(size_t st_idx_2 = 0; st_idx_2 < EXTENT_2; st_idx_2++)
-                                for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
-                                    for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
-                                        int offset = (idx_0 + st_idx_0) * stride_0 +
-                                            (idx_1 + st_idx_1) * stride_1 +
-                                            (idx_2 + st_idx_2) * stride_2 +
-                                            (idx_3 + st_idx_3) * stride_3;
-                                        stencil(st_idx_0,
-                                                st_idx_1,
-                                                st_idx_2,
-                                                st_idx_3) = *((T *)subimage + offset);
-                                    }
-                        // push to stream
-                        stream.write(stencil);
+                  int stride_1 = 1, int subimage_extent_1 = 1) {
+
+        for(size_t idx_1 = 0; idx_1 < (unsigned)subimage_extent_1; idx_1 += EXTENT_1)
+            for(size_t idx_0 = 0; idx_0 < (unsigned)subimage_extent_0; idx_0 += EXTENT_0) {
+                // assemble stencil
+                Stencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> stencil;
+
+                for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
+                    for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
+                        int offset = (idx_0 + st_idx_0) * stride_0 +
+                            (idx_1 + st_idx_1) * stride_1 +
+                            (idx_2 + st_idx_2) * stride_2 +
+                            (idx_3 + st_idx_3) * stride_3;
+                        stencil(st_idx_0,
+                                st_idx_1,
+                                st_idx_2,
+                                st_idx_3) = *((T *)subimage + offset);
+                    }
+
+                // push to stream
+                stream.write(stencil);
         }
     }
 
@@ -38,31 +35,27 @@ namespace dma
     void fpga2cpu(hls::stream<AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> > &stream,
                   void *subimage,
                   int stride_0, int subimage_extent_0,
-                  int stride_1 = 1, int subimage_extent_1 = 1,
-                  int stride_2 = 1, int subimage_extent_2 = 1,
-                  int stride_3 = 1, int subimage_extent_3 = 1) {
-        for(size_t idx_3 = 0; idx_3 < (unsigned)subimage_extent_3; idx_3 += EXTENT_3)
-            for(size_t idx_2 = 0; idx_2 < (unsigned)subimage_extent_2; idx_2 += EXTENT_2)
-                for(size_t idx_1 = 0; idx_1 < (unsigned)subimage_extent_1; idx_1 += EXTENT_1)
-                    for(size_t idx_0 = 0; idx_0 < (unsigned)subimage_extent_0; idx_0 += EXTENT_0) {
-                        // pop from stream
-                        AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> axi_stencil = stream.read();
-                        // disassemble stencil
-                        Stencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> stencil = axi_stencil;
-                        for(size_t st_idx_3 = 0; st_idx_3 < EXTENT_3; st_idx_3++)
-                            for(size_t st_idx_2 = 0; st_idx_2 < EXTENT_2; st_idx_2++)
-                                for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
-                                    for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
-                                        int offset = (idx_0 + st_idx_0) * stride_0 +
-                                            (idx_1 + st_idx_1) * stride_1 +
-                                            (idx_2 + st_idx_2) * stride_2 +
-                                            (idx_3 + st_idx_3) * stride_3;
-                                        *((T *)subimage + offset) = stencil(st_idx_0,
-                                                                            st_idx_1,
-                                                                            st_idx_2,
-                                                                            st_idx_3);
-                                    }
+                  int stride_1 = 1, int subimage_extent_1 = 1) {
+
+        for(size_t idx_1 = 0; idx_1 < (unsigned)subimage_extent_1; idx_1 += EXTENT_1)
+            for(size_t idx_0 = 0; idx_0 < (unsigned)subimage_extent_0; idx_0 += EXTENT_0) {
+                // pop from stream
+                AxiPackedStencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> axi_stencil = stream.read();
+                // disassemble stencil
+                Stencil<T, EXTENT_0, EXTENT_1, EXTENT_2, EXTENT_3> stencil = axi_stencil;
+
+                for(size_t st_idx_1 = 0; st_idx_1 < EXTENT_1; st_idx_1++)
+                    for(size_t st_idx_0 = 0; st_idx_0 < EXTENT_0; st_idx_0++) {
+                        int offset = (idx_0 + st_idx_0) * stride_0 +
+                            (idx_1 + st_idx_1) * stride_1 +
+                            (idx_2 + st_idx_2) * stride_2 +
+                            (idx_3 + st_idx_3) * stride_3;
+                        *((T *)subimage + offset) = stencil(st_idx_0,
+                                                            st_idx_1,
+                                                            st_idx_2,
+                                                            st_idx_3);
                     }
+            }
     }
 
 }
