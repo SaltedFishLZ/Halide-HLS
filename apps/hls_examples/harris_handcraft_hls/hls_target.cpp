@@ -66,7 +66,7 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
                                               70 * 70, 3,
                                               rng_read_bank_2d_0, st_read_bank_2d_0);
 
-   U_BUFFER<70, 3, DATAWIDTH, 1, 1, 1, 3, dtype>::call(_padded_1_stencil_update_stream,
+   U_BUFFER<70, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_padded_1_stencil_update_stream,
                                                        _padded_1_stencil_stream,
                                                        bank_in_2D_0, bank_out_2D_0,
                                                        addr_in_2D_0, addr_out_2D_0,
@@ -272,7 +272,7 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
                                               68 * 68, 3,
                                               rng_read_bank_2d_1, st_read_bank_2d_1);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, dtype>::call(_grad_xx_1_stencil_update_stream,
+   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_xx_1_stencil_update_stream,
                                                        _grad_xx_1_stencil_stream,
                                                        bank_in_2D_1, bank_out_2D_1,
                                                        addr_in_2D_1, addr_out_2D_1,
@@ -565,7 +565,7 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
                                               68 * 68, 3,
                                               rng_read_bank_2d_2, st_read_bank_2d_2);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, dtype>::call(_grad_xy_1_stencil_update_stream,
+   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_xy_1_stencil_update_stream,
                                                        _grad_xy_1_stencil_stream,
                                                        bank_in_2D_2, bank_out_2D_2,
                                                        addr_in_2D_2, addr_out_2D_2,
@@ -761,7 +761,7 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
                                               68 * 68, 3,
                                               rng_read_bank_2d_3, st_read_bank_2d_3);
 
-   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, dtype>::call(_grad_yy_1_stencil_stream,
+   U_BUFFER<68, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_grad_yy_1_stencil_stream,
                                                        _grad_yy_1_stencil_stream,
                                                        bank_in_2D_3, bank_out_2D_3,
                                                        addr_in_2D_3, addr_out_2D_3,
@@ -1040,7 +1040,7 @@ hls::stream<AxiPackedStencil<uint8_t, 2, 1> > &arg_1)
                                               66 * 66, 3,
                                               rng_read_bank_2d_4, st_read_bank_2d_4);
 
-   U_BUFFER<66, 3, DATAWIDTH, 1, 1, 1, 3, dtype>::call(_p2_cim_stencil_update_stream,
+   U_BUFFER<66, 3, DATAWIDTH, 1, 1, 1, 3, uint8_t>::call(_p2_cim_stencil_update_stream,
                                                        _p2_cim_stencil_stream,
                                                        bank_in_2D_4, bank_out_2D_4,
                                                        addr_in_2D_4, addr_out_2D_4,
