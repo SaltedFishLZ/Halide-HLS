@@ -11,6 +11,7 @@ using hls::stream;
 
 //New unified buffer interface
 
+/*
 template <size_t BANK_EXTENT, size_t BANK_NUM,
           size_t EXTENT_3,
           size_t IN_EXTENT_0, size_t IN_EXTENT_1, size_t IN_EXTENT_2,
@@ -101,6 +102,7 @@ class U_BUFFER {
     }
 };
 
+*/
 //Modified from Jing Pu's Linebuffer.h
 
 template <size_t IMG_EXTENT_0, size_t EXTENT_1, size_t EXTENT_2, size_t EXTENT_3,
