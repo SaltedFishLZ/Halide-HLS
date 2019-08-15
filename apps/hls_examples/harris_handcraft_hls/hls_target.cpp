@@ -4,6 +4,7 @@
 #include "unifiedbuffer.h"
 
 #define DATAWIDTH 2
+// #define __UNIFIED_BUFFER__
 
 #include "halide_math.h"
 void hls_target(
@@ -28,9 +29,9 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
    // ---------------------------------------------------------------- //
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
-
+#ifndef __UNIFIED_BUFFER__
    linebuffer<70, 70>(_padded_1_stencil_update_stream, _padded_1_stencil_stream);
-
+#else
 //    hls::stream<uint32_t> addr_in_2D_0("addr_in_2D_0");
 //    hls::stream<uint32_t> addr_out_2D_0("addr_out_2D_0");
 //    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_0("bank_in_2D_0");
@@ -76,7 +77,7 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 //       70 * 70 + 1,
 //       70 * 70, 1, 1
 //    );
-
+#endif
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
    // ---------------------------------------------------------------- //
@@ -236,9 +237,9 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
    // ---------------------------------------------------------------- //
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
-
+#ifndef __UNIFIED_BUFFER__
    linebuffer<68, 68>(_grad_xx_1_stencil_update_stream, _grad_xx_1_stencil_stream);
-
+#else
 //    hls::stream<uint32_t> addr_in_2D_1("addr_in_2D_1");
 //    hls::stream<uint32_t> addr_out_2D_1("addr_out_2D_1");
 //    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_1("bank_in_2D_1");
@@ -284,7 +285,7 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 //       68 * 68 + 1,
 //       68 * 68, 1, 1
 //    );
-
+#endif
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
    // ---------------------------------------------------------------- //
@@ -531,9 +532,9 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
    // ---------------------------------------------------------------- //
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
-   
+#ifndef __UNIFIED_BUFFER__
    linebuffer<68, 68>(_grad_xy_1_stencil_update_stream, _grad_xy_1_stencil_stream);
-
+#else
 //    hls::stream<uint32_t> addr_in_2D_2("addr_in_2D_2");
 //    hls::stream<uint32_t> addr_out_2D_2("addr_out_2D_2");
 //    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_2("bank_in_2D_2");
@@ -579,7 +580,7 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 //       68 * 68 + 1,
 //       68 * 68, 1, 1
 //    );
-
+#endif
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
    // ---------------------------------------------------------------- //
@@ -729,9 +730,9 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
    // ---------------------------------------------------------------- //
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
-
+#ifndef __UNIFIED_BUFFER__
    linebuffer<68, 68>(_grad_yy_1_stencil_update_stream, _grad_yy_1_stencil_stream);
-
+#else
 //    hls::stream<uint32_t> addr_in_2D_3("addr_in_2D_3");
 //    hls::stream<uint32_t> addr_out_2D_3("addr_out_2D_3");
 //    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_3("bank_in_2D_3");
@@ -775,7 +776,7 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 //                                                        2 * 68 + 1,
 //                                                        68 * 68 + 1,
 //                                                        68 * 68, 1, 1);
-
+#endif
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
    // ---------------------------------------------------------------- //
@@ -1008,9 +1009,9 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
    // ---------------------------------------------------------------- //
    // Zheng Hack Begins
    // ---------------------------------------------------------------- //
-
+#ifndef __UNIFIED_BUFFER__
    linebuffer<66, 66>(_p2_cim_stencil_update_stream, _p2_cim_stencil_stream);
-
+#else
 //    hls::stream<uint32_t> addr_in_2D_4("addr_in_2D_4");
 //    hls::stream<uint32_t> addr_out_2D_4("addr_out_2D_4");
 //    hls::stream<PackedStencil<uint32_t, 1, 1, 1, 1> > bank_in_2D_4("bank_in_2D_4");
@@ -1054,7 +1055,7 @@ hls::stream<PackedStencil<uint8_t, 2, 1> > &arg_1)
 //                                                        2 * 66 + 1,
 //                                                        66 * 66 + 1,
 //                                                        66 * 66, 1, 1);
-
+#endif
    // ---------------------------------------------------------------- //
    // Zheng Hack Ends
    // ---------------------------------------------------------------- //
