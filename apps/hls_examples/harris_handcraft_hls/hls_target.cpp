@@ -1,10 +1,15 @@
+// #define __UNIFIED_BUFFER__
+
 #include "hls_target.h"
 
+#ifdef __UNIFIED_BUFFER__
 #include "addrgen.h"
 #include "unifiedbuffer.h"
+#else
+#include "Linebuffer.h"
+#endif
 
 #define DATAWIDTH 2
-// #define __UNIFIED_BUFFER__
 
 #include "halide_math.h"
 void hls_target(

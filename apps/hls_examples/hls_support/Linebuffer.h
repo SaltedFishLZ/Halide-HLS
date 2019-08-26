@@ -1,8 +1,11 @@
 #ifndef LINEBUFFER_H
 #define LINEBUFFER_H
 
+#define __DEBUG__
+
 #include "Stencil.h"
 
+#include <cstdio>
 #include <stddef.h>
 #include <stdint.h>
 #include <assert.h>
@@ -158,6 +161,10 @@ static void call(stream<PackedStencil<T, IN_EXTENT_0, IN_EXTENT_1, EXTENT_2, EXT
     static_assert(IMG_EXTENT_0 > IN_EXTENT_0, "image extent is not larger than input."); // TODO handle this situation.
 #pragma HLS INLINE off
 #pragma HLS DATAFLOW
+
+#ifdef __DEBUG__
+    printf("Using general linebuffer 2D...");
+#endif
 
     // use a 2D storage to buffer lines of image,
     // and output a column stencil per input at steady state
