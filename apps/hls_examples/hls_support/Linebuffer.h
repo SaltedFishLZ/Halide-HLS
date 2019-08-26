@@ -164,8 +164,12 @@ static void call(stream<PackedStencil<T, IN_EXTENT_0, IN_EXTENT_1, EXTENT_2, EXT
 #pragma HLS DATAFLOW
 
 #ifdef __DEBUG__
+    printf("\n\n");
     printf("Using general linebuffer 2D...\n");
-    std::cout << "Input Stream " << in_stream << std::endl;
+    printf("<IN_EXTENT_0, IN_EXTENT_1, EXTENT_2, EXTENT_3> = <%d, %d, %d, %d>\n",
+          IN_EXTENT_0, IN_EXTENT_1, EXTENT_2, EXTENT_3);
+    printf("<OUT_EXTENT_0, OUT_EXTENT_1, EXTENT_2, EXTENT_3> = <%d, %d, %d, %d>\n",
+          OUT_EXTENT_0, OUT_EXTENT_1, EXTENT_2, EXTENT_3);
 #endif
 
     // use a 2D storage to buffer lines of image,
