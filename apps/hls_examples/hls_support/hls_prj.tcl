@@ -17,8 +17,10 @@ add_files -tb run.cpp -cflags "-std=c++0x $INC_FLAGS"
 
 # Target FPGA and clock constraints
 open_solution "solution1"
-set_part {xc7z020clg484-1}
-create_clock -period 10 -name default
+set_part {xczu9eg-ffvb1156-2-i-es2}
+# set_part {xc7z020clg484-1}
+
+create_clock -period 4 -name default
 #config_rom_infer -array_size_threshold 1024
 config_bind -effort high
 config_schedule -effort high

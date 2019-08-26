@@ -136,7 +136,9 @@ public:
         hw_output.compute_at(output, xo);
 
         hw_output.tile(x, y, xo, yo, xi, yi, 64, 64);
-        hw_output.unroll(xi, 2);
+        // Zheng's hack
+        // hw_output.unroll(xi, 2);
+        hw_output.unroll(xi, 3);
         hw_output.accelerate({padded}, xi, xo);
 
         grad_x.linebuffer().unroll(x);

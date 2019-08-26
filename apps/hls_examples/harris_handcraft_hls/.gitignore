@@ -1,4 +1,5 @@
 .nfs*
+vivado.jou
 vivado_hls.log
 hls_prj/
 

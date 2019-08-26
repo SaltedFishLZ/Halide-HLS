@@ -24,6 +24,11 @@ hls_syn: ../hls_support/hls_syn.tcl hls_target.cpp pipeline_hls.cpp run.cpp hls_
 	RUN_PATH=$(realpath ./) \
 	vivado_hls -f $< -l $(HLS_LOG)
 
+hls_export: ../hls_support/hls_export.tcl hls_target.cpp pipeline_hls.cpp run.cpp hls_prj
+	RUN_PATH=$(realpath ./) \
+	vivado_hls -f $< -l $(HLS_LOG)
+
+
 clean:
 	rm -rf hls_prj
 	rm -f $(HLS_LOG)
