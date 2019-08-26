@@ -6,6 +6,7 @@
 #include "Stencil.h"
 
 #include <cstdio>
+#include <iostream>
 #include <stddef.h>
 #include <stdint.h>
 #include <assert.h>
@@ -163,7 +164,8 @@ static void call(stream<PackedStencil<T, IN_EXTENT_0, IN_EXTENT_1, EXTENT_2, EXT
 #pragma HLS DATAFLOW
 
 #ifdef __DEBUG__
-    printf("Using general linebuffer 2D...");
+    printf("Using general linebuffer 2D...\n");
+    std::cout << "Input Stream " << in_stream << std::endl;
 #endif
 
     // use a 2D storage to buffer lines of image,
